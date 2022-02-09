@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+
+{%block contents%}
+
+<div class="container p-3 my-3 bg-dark text-white">
+  <h1>All Teachers</h1>
+
+
+
+
+
+<div class="container p-3 my-3 bg-dark text-white">
+  <h1>Results</h1>
+  <p>
+       <table border="2px" class="table table-hover">
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col">Subjects</th>
+                        <th scope="col">View Profile</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+
+                    <tr scope="row" style="color: black; background-color:White">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.first_name}}</td>
+                        <td>{{i.last_name}}</td>
+                        <td>{{i.email_address}}</td>
+                        <td>{% for subject in i.subjects_taught.values %}{{subject.subject_name}}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+                        <td><a class="btn btn-primary pull-right" href="{% url 'getprofile' i.id %}"
+                               style="color:white">View</a></td>
+
+                    </tr>
+
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+  </p>
+</div>
+{%endblock%}

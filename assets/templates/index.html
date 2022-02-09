@@ -1,0 +1,104 @@
+{%extends 'base.html'%}
+
+{%block contents%}
+<style>
+ body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+    }
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+     .search_icon{
+    background: black;
+    color: white;
+    }
+
+    .auto-height{
+    height: 90vh;
+display: flex;
+justify-content: center;
+align-items: center;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+</style>
+
+
+<div class="container h-50">
+  <div class="d-flex justify-content-center  auto-height">
+    <form action="{%url 'search_teacher'%}" method="post" id="search">
+      {%csrf_token%}
+      <div class="searchbar">
+
+        <input class="search_input" type="text" name="search_field" placeholder="Search...">
+        <!--      <button class="btn btn-outline-success" type="submit">Search</button>-->
+        <!--      <button class="search_icon" type="submit" ><i class="fas fa-search"></button>-->
+        <a href="#" class="search_icon" id="search_button"><i class="fas fa-search"></i></a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center container h-10" style="top: 59px;position: relative; ">
+
+
+<button type="button" onclick="location.href='{%url 'loginview'%}';" class="btn btn-primary" style="padding: 10px;margin-right: 50px;margin-left: 50px;" >Login</button>
+
+  {% comment %}
+<!--<button type="button" onclick="location.href='{%url 'signuppage'%}';" class="btn btn-primary" style="padding: 10px;margin-right: 50px;margin-left: 50px;">Signup</button>-->
+{% endcomment %}
+
+</div>
+
+
+<h3 style="text-align: center;margin-top: 85px;" >Login to access all features</h3>
+
+
+<script>
+  document.getElementById("search_button").onclick = (e) => {
+
+  document.getElementById("search").submit()
+}
+</script>
+
+
+{%endblock%}
