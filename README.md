@@ -2,6 +2,8 @@
 
 Django directory for searching and creating new teachers record
 
+#### Detailed description for project attached[here in PDF](https://github.com/rasmara/teachers-directory/blob/master/tech_test_data/Tech%20Test.pdf) 
+
 ## Installation
 
 ### Pre-requisites
