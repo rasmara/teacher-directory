@@ -58,7 +58,7 @@ python manage.py runserver
 
 ```
 
-## Installation
+## Instructions
 
 - goto **http://localhost:8000/**
 - Login credentials:
